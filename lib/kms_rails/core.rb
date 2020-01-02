@@ -128,7 +128,7 @@ module KmsRails
 
     def aws_kms
       require 'kms_rails/kms_client_mock' if KmsRails.configuration.fake_kms_api == true
-      @kms ||= Aws::KMS::Client.new
+      @kms ||= KmsRails.configuration.kms_client
     end
 
     def aws_generate_data_key(key_id)
